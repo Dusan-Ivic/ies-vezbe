@@ -1,0 +1,1627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:a="http://langdale.com.au/2005/Message#" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<head>
+<title>Profile Documentation</title>
+<style type="text/css">
+/* typography: fonts */
+body { font-family: arial, sans-serif; }
+
+.name, .type, .cardinality, .superclass, .xsdtype, .namespace { font-family: courier, monospace; }
+
+
+/* typography: emphasis */
+h1 { color: white; background: gray;}
+
+h2, h3 { color: gray; text-decoration: none;}
+
+h2.abstract, h2.enumerated, h2.domain {font-style: italic } 
+
+p.note { background-color: #ddd }
+
+p.declaration { color: gray }
+
+:link { color: purple; }
+
+.xsdtype { color: black; font-weight: bold; }
+
+.namespace { color: black }
+
+.package { font-size: x-large; color: gray }
+
+
+/* borders */
+div.group {
+	border-style: solid;
+	border-color: gray;
+	border-width: 1px;
+	
+}
+
+th, td {
+	border-top-style : solid;
+	border-top-width : 1px;
+	border-color: gray;
+ }
+
+
+/* spacing and alignment */
+body {padding: 5px; }
+
+h1 { padding: 5px;}
+
+div.group {
+	margin-top: 10px;
+	padding: 5px;
+	position: relative;
+}
+th, td {
+	text-align : left;
+	vertical-align : top;
+}
+th, td.type { width: 15em; overflow: visible; }
+
+p.cardinality { width: 4em; }
+
+p.package { position: absolute; right: 10px; top: 0px}				
+</style>
+</head>
+<body>
+<h1>Profile Documentation</h1>
+<p/>
+<p class="declaration">
+					Profile namespace:
+					<span class="namespace">http://ftn.uns.ac.rs/esi/simes/2013/LabsProfile#</span>
+</p>
+<h1>Concrete Classes</h1>
+<div id="BaseVoltage" class="group">
+<a href="#BaseVoltage">
+<h2 class="concrete">BaseVoltage</h2>
+</a>
+<p class="package">Core</p>
+<p class="comment">Defines a nominal base voltage which is referenced in the system.</p>
+<h3>Native Members</h3>
+<table>
+<tr>
+<th>
+<p class="name" id="BaseVoltage.nominalVoltage">nominalVoltage</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Voltage">Voltage</a>
+</p>
+</td>
+<td>
+<p class="comment">The PowerSystemResource's base voltage.</p>
+</td>
+</tr>
+</table>
+<h3>Inherited Members</h3>
+<table>
+<tr>
+<th>
+<p class="name">mRID</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">description</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.description">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">name</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="Location" class="group">
+<a href="#Location">
+<h2 class="concrete">Location</h2>
+</a>
+<p class="package">Common</p>
+<p class="comment">The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It is defined with one or more postition points (coordinates) in a given coordinate system.</p>
+<h3>Native Members</h3>
+<table>
+<tr>
+<th>
+<p class="name" id="Location.category">category</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p class="comment">Category by utility's corporate standards and practices, relative to the location itself (e.g., geographical, functional accounting, etc., not a given property that happens to exist at that location).</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="Location.corporateCode">corporateCode</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p class="comment">Utility-specific code for the location.</p>
+</td>
+</tr>
+</table>
+<h3>Inherited Members</h3>
+<table>
+<tr>
+<th>
+<p class="name">mRID</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">description</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.description">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">name</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="PowerTransformer" class="group">
+<a href="#PowerTransformer">
+<h2 class="concrete">PowerTransformer</h2>
+</a>
+<p class="package">Wires</p>
+<p class="comment">An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling between electric circuits. Transformers can be used to control voltage and phase shift (active power flow).</p>
+<h3>Native Members</h3>
+<table>
+<tr>
+<th>
+<p class="name" id="PowerTransformer.autotransformer">autotransformer</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p class="comment">True if the transformer is an autotransfomer</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="PowerTransformer.function">function</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#TransformerFunctionKind">TransformerFunctionKind</a>
+</p>
+</td>
+<td>
+<p class="comment">Purpose of the transformer within the network. (Copied from 61970:TransformerAsset)</p>
+</td>
+</tr>
+</table>
+<h3>Inherited Members</h3>
+<table>
+<tr>
+<th>
+<p class="name">isUnderground</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#Equipment.isUnderground">Equipment</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">private</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#Equipment.private">Equipment</a>
+</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>
+<p class="name">customType</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#PowerSystemResource.customType">PowerSystemResource</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">Location</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Location">Location</a>
+</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#PowerSystemResource.Location">PowerSystemResource</a>
+</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>
+<p class="name">mRID</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">description</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.description">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">name</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="TransformerWinding" class="group">
+<a href="#TransformerWinding">
+<h2 class="concrete">TransformerWinding</h2>
+</a>
+<p class="package">Wires</p>
+<p class="comment">A winding is associated with each defined terminal of a transformer (or phase shifter).</p>
+<h3>Native Members</h3>
+<table>
+<tr>
+<th>
+<p class="name" id="TransformerWinding.connectionType">connectionType</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#WindingConnection">WindingConnection</a>
+</p>
+</td>
+<td>
+<p class="comment">The type of connection of the winding.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="TransformerWinding.grounded">grounded</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p class="comment">Set if the winding is grounded.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="TransformerWinding.phaseToGroundVoltage">phaseToGroundVoltage</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Voltage">Voltage</a>
+</p>
+</td>
+<td>
+<p class="comment">Phase-to-ground voltage of the winding.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="TransformerWinding.phaseToPhaseVoltage">phaseToPhaseVoltage</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Voltage">Voltage</a>
+</p>
+</td>
+<td>
+<p class="comment">Phase-to-phase voltage of the winding.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="TransformerWinding.ratedS">ratedS</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#ApparentPower">ApparentPower</a>
+</p>
+</td>
+<td>
+<p class="comment">The normal apparent power rating for the winding</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="TransformerWinding.ratedU">ratedU</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Voltage">Voltage</a>
+</p>
+</td>
+<td>
+<p class="comment">The rated voltage (phase-to-phase) of the winding, usually the same as the neutral voltage.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="TransformerWinding.windingType">windingType</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#WindingType">WindingType</a>
+</p>
+</td>
+<td>
+<p class="comment">The type of winding.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="TransformerWinding.PowerTransformer">PowerTransformer</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#PowerTransformer">PowerTransformer</a>
+</p>
+</td>
+<td>
+<p class="comment">A transformer has windings</p>
+</td>
+</tr>
+</table>
+<h3>Inherited Members</h3>
+<table>
+<tr>
+<th>
+<p class="name">phases</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#PhaseCode">PhaseCode</a>
+</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#ConductingEquipment.phases">ConductingEquipment</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">ratedVoltage</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">float</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#ConductingEquipment.ratedVoltage">ConductingEquipment</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">BaseVoltage</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#BaseVoltage">BaseVoltage</a>
+</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#ConductingEquipment.BaseVoltage">ConductingEquipment</a>
+</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>
+<p class="name">isUnderground</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#Equipment.isUnderground">Equipment</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">private</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#Equipment.private">Equipment</a>
+</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>
+<p class="name">customType</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#PowerSystemResource.customType">PowerSystemResource</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">Location</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Location">Location</a>
+</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#PowerSystemResource.Location">PowerSystemResource</a>
+</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>
+<p class="name">mRID</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">description</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.description">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">name</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="WindingTest" class="group">
+<a href="#WindingTest">
+<h2 class="concrete">WindingTest</h2>
+</a>
+<p class="package">Wires</p>
+<p class="comment">Physical winding test data for the winding/tap pairs of a transformer (or phase shifter). This test data can be used to derive other attributes of specific transformer or phase shifter models.</p>
+<h3>Native Members</h3>
+<table>
+<tr>
+<th>
+<p class="name" id="WindingTest.leakageImpedance">leakageImpedance</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Impedance">Impedance</a>
+</p>
+</td>
+<td>
+<p class="comment">The leakage impedance measured at the "from" winding  with the "to" winding short-circuited and all other windings open-circuited.  Leakage impedance is expressed in units based on the apparent power and voltage ratings of the "from" winding.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="WindingTest.leakageImpedance0Percent">leakageImpedance0Percent</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#PerCent">PerCent</a>
+</p>
+</td>
+<td>
+<p class="comment">Zero-sequence leakage impedance [%]. When unavailable, use same value as for the direct-sequence impedance.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="WindingTest.leakageImpedanceMaxPercent">leakageImpedanceMaxPercent</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#PerCent">PerCent</a>
+</p>
+</td>
+<td>
+<p class="comment">The leakage impedance measured at the highest position of the tap changer</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="WindingTest.leakageImpedanceMinPercent">leakageImpedanceMinPercent</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#PerCent">PerCent</a>
+</p>
+</td>
+<td>
+<p class="comment">The leakage impedance measured at the lowest position of the tap changer</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="WindingTest.loadLoss">loadLoss</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#KWActivePower">KWActivePower</a>
+</p>
+</td>
+<td>
+<p class="comment">The load loss kW ("to" winding short-circuited) from the test report.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="WindingTest.noLoadLoss">noLoadLoss</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#KWActivePower">KWActivePower</a>
+</p>
+</td>
+<td>
+<p class="comment">The no load loss kW "to" winding open-circuited) from the test report.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="WindingTest.phaseShift">phaseShift</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#AngleDegrees">AngleDegrees</a>
+</p>
+</td>
+<td>
+<p class="comment">The phase shift measured at the open-circuited "to" winding, with the "from" winding set to the "from" winding's rated voltage and all other windings open-circuited.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="WindingTest.From_TransformerWinding">From_TransformerWinding</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#TransformerWinding">TransformerWinding</a>
+</p>
+</td>
+<td>
+<p class="comment">The winding from which the test was conducted</p>
+</td>
+</tr>
+</table>
+<h3>Inherited Members</h3>
+<table>
+<tr>
+<th>
+<p class="name">mRID</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">description</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.description">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">name</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<h1>Abstract Classes</h1>
+<div id="ConductingEquipment" class="group">
+<a href="#ConductingEquipment">
+<h2 class="abstract">ConductingEquipment</h2>
+</a>
+<p class="package">Core</p>
+<p class="comment">The parts of the power system that are designed to carry current or that are conductively connected therewith. ConductingEquipment is contained within an EquipmentContainer that may be a Substation, or a VoltageLevel or a Bay within a Substation.</p>
+<h3>Native Members</h3>
+<table>
+<tr>
+<th>
+<p class="name" id="ConductingEquipment.phases">phases</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#PhaseCode">PhaseCode</a>
+</p>
+</td>
+<td>
+<p class="comment">Describes the phases carried by a conducting equipment.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="ConductingEquipment.ratedVoltage">ratedVoltage</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">float</p>
+</td>
+<td>
+<p class="comment">Rated voltage of conducting equipment (can be different from BaseVoltage).</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="ConductingEquipment.BaseVoltage">BaseVoltage</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#BaseVoltage">BaseVoltage</a>
+</p>
+</td>
+<td>
+<p class="comment">Use association to ConductingEquipment only when there is no VoltageLevel container used.</p>
+</td>
+</tr>
+</table>
+<h3>Inherited Members</h3>
+<table>
+<tr>
+<th>
+<p class="name">isUnderground</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#Equipment.isUnderground">Equipment</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">private</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#Equipment.private">Equipment</a>
+</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>
+<p class="name">customType</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#PowerSystemResource.customType">PowerSystemResource</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">Location</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Location">Location</a>
+</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#PowerSystemResource.Location">PowerSystemResource</a>
+</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>
+<p class="name">mRID</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">description</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.description">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">name</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="Equipment" class="group">
+<a href="#Equipment">
+<h2 class="abstract">Equipment</h2>
+</a>
+<p class="package">Core</p>
+<p class="comment">The parts of a power system that are physical devices, electronic or mechanical</p>
+<h3>Native Members</h3>
+<table>
+<tr>
+<th>
+<p class="name" id="Equipment.isUnderground">isUnderground</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p class="comment">True if device belongs to underground layer.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="Equipment.private">private</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">boolean</p>
+</td>
+<td>
+<p class="comment">True if equipment is private property.</p>
+</td>
+</tr>
+</table>
+<h3>Inherited Members</h3>
+<table>
+<tr>
+<th>
+<p class="name">customType</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#PowerSystemResource.customType">PowerSystemResource</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">Location</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Location">Location</a>
+</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#PowerSystemResource.Location">PowerSystemResource</a>
+</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>
+<p class="name">mRID</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">description</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.description">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">name</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="IdentifiedObject" class="group">
+<a href="#IdentifiedObject">
+<h2 class="abstract">IdentifiedObject</h2>
+</a>
+<p class="package">Core</p>
+<p class="comment">This is a root class to provide common naming attributes for all classes needing naming attributes</p>
+<h3>Native Members</h3>
+<table>
+<tr>
+<th>
+<p class="name" id="IdentifiedObject.mRID">mRID</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p class="comment">A Model Authority issues mRIDs. Given that each Model Authority has a unique id and this id is part of the mRID, then the mRID is globally unique.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="IdentifiedObject.description">description</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p class="comment">The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="IdentifiedObject.name">name</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td/>
+</tr>
+</table>
+</div>
+<div id="PowerSystemResource" class="group">
+<a href="#PowerSystemResource">
+<h2 class="abstract">PowerSystemResource</h2>
+</a>
+<p class="package">Core</p>
+<p class="comment">A power system resource can be an item of equipment such as a Switch, an EquipmentContainer containing many individual items of equipment such as a</p>
+<p class="comment">Substation, or an organisational entity such as Company or SubControlArea.  This provides for the nesting of collections of PowerSystemResources within other PowerSystemResources. For example, a Switch could be a member of a Substation and a Substation could be a member of a division of a Company.</p>
+<h3>Native Members</h3>
+<table>
+<tr>
+<th>
+<p class="name" id="PowerSystemResource.customType">customType</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p class="comment">Custom (project-specific) type of this object. For example, all supply transformers, regardless of winding count, can have a custom type named "Supply transformer".</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name" id="PowerSystemResource.Location">Location</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#Location">Location</a>
+</p>
+</td>
+<td>
+<p class="comment">Location of this power system resource.</p>
+</td>
+</tr>
+</table>
+<h3>Inherited Members</h3>
+<table>
+<tr>
+<th>
+<p class="name">mRID</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">description</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.description">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">name</p>
+</th>
+<td>
+<p class="cardinality">1..1</p>
+</td>
+<td class="type">
+<p class="type">string</p>
+</td>
+<td>
+<p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<h1>Enumerations</h1>
+<div id="PhaseCode" class="group">
+<a href="#PhaseCode">
+<h2 class="enumerated">PhaseCode</h2>
+</a>
+<p class="package">Core</p>
+<p class="comment">Enumeration of phase identifiers. Allows designation of phases for both transmission and distribution equipment, circuits and loads.</p>
+<p class="comment">Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. Phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.</p>
+<table>
+<tr>
+<th>
+<p class="name">A</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">AB</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">ABC</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">ABCN</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">ABN</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">AC</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">ACN</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">AN</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">B</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">BC</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">BCN</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">BN</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">C</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">CN</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">N</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">s12N</p>
+</th>
+<td>
+<p class="comment">Secondary phases 1, 2, and neutral.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">s1N</p>
+</th>
+<td>
+<p class="comment">Secondary phase 1 and neutral.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">s2N</p>
+</th>
+<td>
+<p class="comment">Secondary phase 2 and neutral.</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="TransformerFunctionKind" class="group">
+<a href="#TransformerFunctionKind">
+<h2 class="enumerated">TransformerFunctionKind</h2>
+</a>
+<p class="package">InfAssetModels</p>
+<p class="comment">Function of a transformer.</p>
+<table>
+<tr>
+<th>
+<p class="name">autotransformer</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">other</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">powerTransformer</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">secondaryTransformer</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">voltageRegulator</p>
+</th>
+<td/>
+</tr>
+</table>
+</div>
+<div id="WindingConnection" class="group">
+<a href="#WindingConnection">
+<h2 class="enumerated">WindingConnection</h2>
+</a>
+<p class="package">Wires</p>
+<p class="comment">Winding connection type.</p>
+<table>
+<tr>
+<th>
+<p class="name">A</p>
+</th>
+<td>
+<p class="comment">Autotransformer common winding</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">D</p>
+</th>
+<td>
+<p class="comment">Delta</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">I</p>
+</th>
+<td>
+<p class="comment">Independent winding, for single-phase connections</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">Y</p>
+</th>
+<td>
+<p class="comment">Wye</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">Yn</p>
+</th>
+<td>
+<p class="comment">Wye, with neutral brought out for grounding.</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">Z</p>
+</th>
+<td>
+<p class="comment">ZigZag</p>
+</td>
+</tr>
+<tr>
+<th>
+<p class="name">Zn</p>
+</th>
+<td>
+<p class="comment">ZigZag, with neutral brought out for grounding.</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="WindingType" class="group">
+<a href="#WindingType">
+<h2 class="enumerated">WindingType</h2>
+</a>
+<p class="package">Wires</p>
+<p class="comment">Winding type.</p>
+<table>
+<tr>
+<th>
+<p class="name">primary</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">quaternary</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">secondary</p>
+</th>
+<td/>
+</tr>
+<tr>
+<th>
+<p class="name">tertiary</p>
+</th>
+<td/>
+</tr>
+</table>
+</div>
+<h1>Compound Types</h1>
+<h1>Datatypes</h1>
+<div id="AngleDegrees" class="group">
+<a href="#AngleDegrees">
+<h2 class="domain">AngleDegrees</h2>
+</a>
+<p class="package"/>
+<p class="comment">Measurement of angle in degrees</p>
+<p class="declaration">XSD type: <span class="xsdtype">float</span>
+</p>
+</div>
+<div id="ApparentPower" class="group">
+<a href="#ApparentPower">
+<h2 class="domain">ApparentPower</h2>
+</a>
+<p class="package"/>
+<p class="comment">Product of the RMS value of the voltage and the RMS value of the current</p>
+<p class="declaration">XSD type: <span class="xsdtype">float</span>
+</p>
+</div>
+<div id="Impedance" class="group">
+<a href="#Impedance">
+<h2 class="domain">Impedance</h2>
+</a>
+<p class="package"/>
+<p class="comment">Ratio of voltage to current.</p>
+<p class="declaration">XSD type: <span class="xsdtype">float</span>
+</p>
+</div>
+<div id="KWActivePower" class="group">
+<a href="#KWActivePower">
+<h2 class="domain">KWActivePower</h2>
+</a>
+<p class="package"/>
+<p class="comment">Active power in kilowatts.</p>
+<p class="declaration">XSD type: <span class="xsdtype">float</span>
+</p>
+</div>
+<div id="PerCent" class="group">
+<a href="#PerCent">
+<h2 class="domain">PerCent</h2>
+</a>
+<p class="package"/>
+<p class="comment">Normally 0 - 100 on a defined base</p>
+<p class="declaration">XSD type: <span class="xsdtype">float</span>
+</p>
+</div>
+<div id="Voltage" class="group">
+<a href="#Voltage">
+<h2 class="domain">Voltage</h2>
+</a>
+<p class="package"/>
+<p class="comment">Electrical voltage.</p>
+<p class="declaration">XSD type: <span class="xsdtype">float</span>
+</p>
+</div>
+</body>
+</html>
