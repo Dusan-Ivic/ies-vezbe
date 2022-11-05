@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+ <Personnel>
+
+	<Employee typeOfEmployment="permanent">
+		<Name>Marko</Name>
+	</Employee>
+ 
+	<Employee typeOfEmployment="contract">
+		<Name>Nikola</Name> 
+	</Employee>
+ 
+ </Personnel>
+ 

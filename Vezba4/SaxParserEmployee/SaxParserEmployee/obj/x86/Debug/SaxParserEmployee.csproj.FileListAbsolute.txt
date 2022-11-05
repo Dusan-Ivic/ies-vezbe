@@ -1,0 +1,12 @@
+c:\users\nemanja.nedic\documents\visual studio 2010\Projects\SaxParserEmployee\SaxParserEmployee\bin\Debug\Employee.xml
+c:\users\nemanja.nedic\documents\visual studio 2010\Projects\SaxParserEmployee\SaxParserEmployee\bin\Debug\SaxParserEmployee.exe
+c:\users\nemanja.nedic\documents\visual studio 2010\Projects\SaxParserEmployee\SaxParserEmployee\bin\Debug\SaxParserEmployee.pdb
+c:\users\nemanja.nedic\documents\visual studio 2010\Projects\SaxParserEmployee\SaxParserEmployee\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\nemanja.nedic\documents\visual studio 2010\Projects\SaxParserEmployee\SaxParserEmployee\obj\x86\Debug\SaxParserEmployee.exe
+c:\users\nemanja.nedic\documents\visual studio 2010\Projects\SaxParserEmployee\SaxParserEmployee\obj\x86\Debug\SaxParserEmployee.pdb
+H:\Vezba4\SaxParserEmployee\SaxParserEmployee\obj\x86\Debug\SaxParserEmployee.exe
+H:\Vezba4\SaxParserEmployee\SaxParserEmployee\obj\x86\Debug\SaxParserEmployee.pdb
+H:\Vezba4\SaxParserEmployee\SaxParserEmployee\bin\Debug\Employee.xml
+H:\Vezba4\SaxParserEmployee\SaxParserEmployee\bin\Debug\SaxParserEmployee.exe
+H:\Vezba4\SaxParserEmployee\SaxParserEmployee\bin\Debug\SaxParserEmployee.pdb
+H:\Vezba4\SaxParserEmployee\SaxParserEmployee\obj\x86\Debug\ResolveAssemblyReference.cache
