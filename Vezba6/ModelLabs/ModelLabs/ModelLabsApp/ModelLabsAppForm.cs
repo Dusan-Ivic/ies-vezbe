@@ -11,6 +11,7 @@ using System.Threading;
 using System.Reflection;
 using CIM.Model;
 using CIMParser;
+using FTN;
 
 namespace ModelLabsApp
 {
@@ -62,7 +63,32 @@ namespace ModelLabsApp
 				{
 					if (LoadModelFromExtractFile(fs, ref concreteModel, out log))
 					{
-                        // to do: zadak
+                        StringBuilder sb = new StringBuilder();
+                        
+                        sb.AppendLine("------------- ZADATAK 1 -------------");
+
+                        foreach (string type in concreteModel.ModelMap.Keys)
+                        {
+                            sb.AppendLine($"Type: {type}");
+                            sb.AppendLine($"Count: {concreteModel.ModelMap[type].Keys.Count}\n");
+                        }
+                        
+                        sb.AppendLine("------------- ZADATAK 2 -------------");
+
+                        if (concreteModel.ModelMap.ContainsKey("FTN.WindingTest"))
+                        {
+                            SortedDictionary<string, object> windingTests = concreteModel.ModelMap["FTN.WindingTest"];
+
+                            if (windingTests.ContainsKey("939140759_TW1_WT"))
+                            {
+                                WindingTest windingTest = (WindingTest)windingTests["939140759_TW1_WT"];
+
+                                sb.AppendLine($"mRID: {windingTest.MRID}");
+                                sb.AppendLine($"LoadLoss: {windingTest.LoadLoss}\n");
+                            }
+                        }
+
+                        resultTbx.Text = sb.ToString();
 					}
 					else
 					{
