@@ -143,10 +143,104 @@
 			}
 		}
 
-		#endregion Populate ResourceDescription
+        public static void PopulateTransformerWindingProperties(FTN.TransformerWinding cimTransformerWinding, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
+        {
+            if ((cimTransformerWinding != null) && (rd != null))
+            {
+                PowerTransformerConverter.PopulateConductingEquipmentProperties(cimTransformerWinding, rd, importHelper, report);
 
-		#region Enums convert
-		public static PhaseCode GetDMSPhaseCode(FTN.PhaseCode phases)
+                if (cimTransformerWinding.ConnectionTypeHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.POWERTRWINDING_CONNTYPE, (short)GetDMSWindingConnection(cimTransformerWinding.ConnectionType)));
+                }
+                if (cimTransformerWinding.GroundedHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.POWERTRWINDING_GROUNDED, cimTransformerWinding.Grounded));
+                }
+                if (cimTransformerWinding.RatedSHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.POWERTRWINDING_RATEDS, cimTransformerWinding.RatedS));
+                }
+                if (cimTransformerWinding.RatedUHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.POWERTRWINDING_RATEDU, cimTransformerWinding.RatedU));
+                }
+                if (cimTransformerWinding.WindingTypeHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.POWERTRWINDING_WINDTYPE, (short)GetDMSWindingType(cimTransformerWinding.WindingType)));
+                }
+                if (cimTransformerWinding.PhaseToGroundVoltageHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.POWERTRWINDING_PHASETOGRNDVOLTAGE, cimTransformerWinding.PhaseToGroundVoltage));
+                }
+                if (cimTransformerWinding.PhaseToPhaseVoltageHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.POWERTRWINDING_PHASETOPHASEVOLTAGE, cimTransformerWinding.PhaseToPhaseVoltage));
+                }
+                if (cimTransformerWinding.PowerTransformerHasValue)
+                {
+                    long gid = importHelper.GetMappedGID(cimTransformerWinding.PowerTransformer.ID);
+                    if (gid < 0)
+                    {
+                        report.Report.Append("WARNING: Convert ").Append(cimTransformerWinding.GetType().ToString()).Append(" rdfID = \"").Append(cimTransformerWinding.ID);
+                        report.Report.Append("\" - Failed to set reference to PowerTransformer: rdfID \"").Append(cimTransformerWinding.PowerTransformer.ID).AppendLine(" \" is not mapped to GID!");
+                    }
+                    rd.AddProperty(new Property(ModelCode.POWERTRWINDING_POWERTRW, gid));
+                }
+            }
+        }
+
+        public static void PopulateWindingTestProperties(FTN.WindingTest cimWindingTest, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
+        {
+            if ((cimWindingTest != null) && (rd != null))
+            {
+                PowerTransformerConverter.PopulateIdentifiedObjectProperties(cimWindingTest, rd);
+
+                if (cimWindingTest.LeakageImpedanceHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.WINDINGTEST_LEAKIMPDN, cimWindingTest.LeakageImpedance));
+                }
+                if (cimWindingTest.LoadLossHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.WINDINGTEST_LOADLOSS, cimWindingTest.LoadLoss));
+                }
+                if (cimWindingTest.NoLoadLossHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.WINDINGTEST_NOLOADLOSS, cimWindingTest.NoLoadLoss));
+                }
+                if (cimWindingTest.PhaseShiftHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.WINDINGTEST_PHASESHIFT, cimWindingTest.PhaseShift));
+                }
+                if (cimWindingTest.LeakageImpedance0PercentHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.WINDINGTEST_LEAKIMPDN0PERCENT, cimWindingTest.LeakageImpedance0Percent));
+                }
+                if (cimWindingTest.LeakageImpedanceMinPercentHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.WINDINGTEST_LEAKIMPDNMINPERCENT, cimWindingTest.LeakageImpedanceMinPercent));
+                }
+                if (cimWindingTest.LeakageImpedanceMaxPercentHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.WINDINGTEST_LEAKIMPDNMAXPERCENT, cimWindingTest.LeakageImpedanceMaxPercent));
+                }
+                if (cimWindingTest.From_TransformerWindingHasValue)
+                {
+                    long gid = importHelper.GetMappedGID(cimWindingTest.From_TransformerWinding.ID);
+                    if (gid < 0)
+                    {
+                        report.Report.Append("WARNING: Convert ").Append(cimWindingTest.GetType().ToString()).Append(" rdfID = \"").Append(cimWindingTest.ID);
+                        report.Report.Append("\" - Failed to set reference to From_TransformerWinding: rdfID \"").Append(cimWindingTest.From_TransformerWinding.ID).AppendLine(" \" is not mapped to GID!");
+                    }
+                    rd.AddProperty(new Property(ModelCode.WINDINGTEST_POWERTRWINDING, gid));
+                }
+            }
+        }
+
+        #endregion Populate ResourceDescription
+
+        #region Enums convert
+        public static PhaseCode GetDMSPhaseCode(FTN.PhaseCode phases)
 		{
 			switch (phases)
 			{

@@ -96,8 +96,8 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter.Importer
 			ImportBaseVoltages();
 			ImportLocations();
 			ImportPowerTransformers();
-			//// TODO:
-			//// ADD IMPORT of TransformerWindings and WindingTests
+            ImportTransformerWindings();
+            ImportWindingTests();
 
 			LogManager.Log("Loading elements and creating delta completed.", LogLevel.Info);
 		}
@@ -219,18 +219,86 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter.Importer
 			}
 			return rd;
 		}
-
-		//// TODO:
-		//// IMPLEMENT IMPORT of TransformerWindings and WindingTests
+        
 		private void ImportTransformerWindings()
 		{
-		}
+            SortedDictionary<string, object> cimTransformerWindings = concreteModel.GetAllObjectsOfType("FTN.TransformerWinding");
+            if (cimTransformerWindings != null)
+            {
+                foreach (KeyValuePair<string, object> cimTransformerWindingPair in cimTransformerWindings)
+                {
+                    FTN.TransformerWinding cimTransformerWinding = cimTransformerWindingPair.Value as FTN.TransformerWinding;
 
-		
-		private void ImportWindingTests()
+                    ResourceDescription rd = CreateTransformerWindingResourceDescription(cimTransformerWinding);
+                    if (rd != null)
+                    {
+                        delta.AddDeltaOperation(DeltaOpType.Insert, rd, true);
+                        report.Report.Append("TransformerWinding ID = ").Append(cimTransformerWinding.ID).Append(" SUCCESSFULLY converted to GID = ").AppendLine(rd.Id.ToString());
+                    }
+                    else
+                    {
+                        report.Report.Append("TransformerWinding ID = ").Append(cimTransformerWinding.ID).AppendLine(" FAILED to be converted");
+                    }
+                }
+                report.Report.AppendLine();
+            }
+        }
+
+        private ResourceDescription CreateTransformerWindingResourceDescription(FTN.TransformerWinding cimTransformerWinding)
+        {
+            ResourceDescription rd = null;
+            if (cimTransformerWinding != null)
+            {
+                long gid = ModelCodeHelper.CreateGlobalId(0, (short)DMSType.POWERTRWINDING, importHelper.CheckOutIndexForDMSType(DMSType.POWERTRWINDING));
+                rd = new ResourceDescription(gid);
+                importHelper.DefineIDMapping(cimTransformerWinding.ID, gid);
+
+                ////populate ResourceDescription
+                PowerTransformerConverter.PopulateTransformerWindingProperties(cimTransformerWinding, rd, importHelper, report);
+            }
+            return rd;
+        }
+
+        private void ImportWindingTests()
 		{
-		}
-		#endregion Import
-	}
+            SortedDictionary<string, object> cimWindingTests = concreteModel.GetAllObjectsOfType("FTN.WindingTest");
+            if (cimWindingTests != null)
+            {
+                foreach (KeyValuePair<string, object> cimWindingTestPair in cimWindingTests)
+                {
+                    FTN.WindingTest cimWindingTest = cimWindingTestPair.Value as FTN.WindingTest;
+
+                    ResourceDescription rd = CreateWindingTestResourceDescription(cimWindingTest);
+                    if (rd != null)
+                    {
+                        delta.AddDeltaOperation(DeltaOpType.Insert, rd, true);
+                        report.Report.Append("WindingTest ID = ").Append(cimWindingTest.ID).Append(" SUCCESSFULLY converted to GID = ").AppendLine(rd.Id.ToString());
+                    }
+                    else
+                    {
+                        report.Report.Append("WindingTest ID = ").Append(cimWindingTest.ID).AppendLine(" FAILED to be converted");
+                    }
+                }
+                report.Report.AppendLine();
+            }
+        }
+
+        private ResourceDescription CreateWindingTestResourceDescription(FTN.WindingTest cimWindingTest)
+        {
+            ResourceDescription rd = null;
+            if (cimWindingTest != null)
+            {
+                long gid = ModelCodeHelper.CreateGlobalId(0, (short)DMSType.WINDINGTEST, importHelper.CheckOutIndexForDMSType(DMSType.WINDINGTEST));
+                rd = new ResourceDescription(gid);
+                importHelper.DefineIDMapping(cimWindingTest.ID, gid);
+
+                ////populate ResourceDescription
+                PowerTransformerConverter.PopulateIdentifiedObjectProperties(cimWindingTest, rd);
+            }
+            return rd;
+        }
+
+        #endregion Import
+    }
 }
 
