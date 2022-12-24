@@ -211,6 +211,137 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
 			return resultIds;
 		}
 
+        // Template - GetExtentValues
+        public List<long> GetPowerTransformers()
+        {
+            ModelCode modelCode = ModelCode.POWERTR;
+
+            string message = "Getting power transformers method started.";
+            Console.WriteLine(message);
+            CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+
+            XmlTextWriter xmlWriter = null;
+            int iteratorId = 0;
+            List<long> ids = new List<long>();
+
+            try
+            {
+                int numberOfResources = 2;
+                int resourcesLeft = 0;
+
+                List<ModelCode> properties = modelResourcesDesc.GetAllPropertyIds(modelCode);
+
+                iteratorId = GdaQueryProxy.GetExtentValues(modelCode, properties);
+                resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
+
+
+                xmlWriter = new XmlTextWriter(Config.Instance.ResultDirecotry + "\\GetPowerTransformers_Results.xml", Encoding.Unicode);
+                xmlWriter.Formatting = Formatting.Indented;
+
+                while (resourcesLeft > 0)
+                {
+                    List<ResourceDescription> rds = GdaQueryProxy.IteratorNext(numberOfResources, iteratorId);
+
+                    for (int i = 0; i < rds.Count; i++)
+                    {
+                        ids.Add(rds[i].Id);
+                        rds[i].ExportToXml(xmlWriter);
+                        xmlWriter.Flush();
+                    }
+
+                    resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
+                }
+
+                GdaQueryProxy.IteratorClose(iteratorId);
+
+                message = "Getting power transformers method successfully finished.";
+                Console.WriteLine(message);
+                CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+
+            }
+            catch (Exception e)
+            {
+                message = string.Format("Getting power transformers method failed for {0}.\n\t{1}", modelCode, e.Message);
+                Console.WriteLine(message);
+                CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+            }
+            finally
+            {
+                if (xmlWriter != null)
+                {
+                    xmlWriter.Close();
+                }
+            }
+
+            return ids;
+        }
+
+        // Template - GetRelatedValues
+        public List<long> GetTransformerWindings(long sourceGlobalId)
+        {
+            Association association = new Association()
+            {
+                PropertyId = ModelCode.POWERTR_WINDINGS,
+                Type = ModelCode.POWERTRWINDING
+            };
+
+            string message = "Getting transformer windings method started.";
+            Console.WriteLine(message);
+            CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+
+            List<long> resultIds = new List<long>();
+
+
+            XmlTextWriter xmlWriter = null;
+            int numberOfResources = 2;
+
+            try
+            {
+                List<ModelCode> properties = modelResourcesDesc.GetAllPropertyIds(ModelCode.POWERTRWINDING);
+
+                int iteratorId = GdaQueryProxy.GetRelatedValues(sourceGlobalId, properties, association);
+                int resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
+
+                xmlWriter = new XmlTextWriter(Config.Instance.ResultDirecotry + "\\GetTransformerWindings_Results.xml", Encoding.Unicode);
+                xmlWriter.Formatting = Formatting.Indented;
+
+                while (resourcesLeft > 0)
+                {
+                    List<ResourceDescription> rds = GdaQueryProxy.IteratorNext(numberOfResources, iteratorId);
+
+                    for (int i = 0; i < rds.Count; i++)
+                    {
+                        resultIds.Add(rds[i].Id);
+                        rds[i].ExportToXml(xmlWriter);
+                        xmlWriter.Flush();
+                    }
+
+                    resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
+                }
+
+                GdaQueryProxy.IteratorClose(iteratorId);
+
+                message = "Getting transformer windings method successfully finished.";
+                Console.WriteLine(message);
+                CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+            }
+            catch (Exception e)
+            {
+                message = string.Format("Getting transformer windings method  failed for sourceGlobalId = {0} and association (propertyId = {1}, type = {2}). Reason: {3}", sourceGlobalId, association.PropertyId, association.Type, e.Message);
+                Console.WriteLine(message);
+                CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+            }
+            finally
+            {
+                if (xmlWriter != null)
+                {
+                    xmlWriter.Close();
+                }
+            }
+
+            return resultIds;
+        }
+
         #endregion GDAQueryService
 
         #region Test Methods

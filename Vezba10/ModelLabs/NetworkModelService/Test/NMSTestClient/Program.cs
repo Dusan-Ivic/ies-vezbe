@@ -109,7 +109,35 @@ namespace FTN.Services.NetworkModelService.TestClient
                             CommonTrace.WriteTrace(CommonTrace.TraceError, message);
                         }
                     }
-					else if (str != "q")
+                    else if (str == "5")
+                    {
+                        try
+                        {
+                            tgda.GetPowerTransformers();
+                        }
+                        catch (Exception ex)
+                        {
+                            message = string.Format("GetPowerTransformers failed. {0}", ex.Message);
+                            Console.WriteLine(message);
+                            CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+                        }
+                    }
+                    else if (str == "6")
+                    {
+                        try
+                        {
+                            List<long> ids = tgda.GetPowerTransformers();
+                            long minimalGlobalId = ids.Min();
+                            tgda.GetTransformerWindings(minimalGlobalId);
+                        }
+                        catch (Exception ex)
+                        {
+                            message = string.Format("GetTransformerWindings failed. {0}", ex.Message);
+                            Console.WriteLine(message);
+                            CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+                        }
+                    }
+                    else if (str != "q")
 					{
 						PrintUnknownOption();
 					}
@@ -135,7 +163,10 @@ namespace FTN.Services.NetworkModelService.TestClient
 			Console.WriteLine("\t1) Get values");
 			Console.WriteLine("\t2) Get extent values");
 			Console.WriteLine("\t3) Get related values");
-			Console.WriteLine("\tq) Quit");
+            Console.WriteLine("\t4) Test apply delta");
+            Console.WriteLine("\t5) Get power transformers");
+            Console.WriteLine("\t6) Get transformer windings of power transformer");
+            Console.WriteLine("\tq) Quit");
 		}
 
         #region Help methods
