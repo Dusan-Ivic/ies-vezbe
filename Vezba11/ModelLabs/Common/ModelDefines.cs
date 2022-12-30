@@ -14,6 +14,7 @@ namespace FTN.Common
 		POWERTR								= 0x0003,
 		POWERTRWINDING						= 0x0004,
 		WINDINGTEST							= 0x0005,
+        ACLINESEGMENT                       = 0x0006
 	}
 
     [Flags]
@@ -72,7 +73,15 @@ namespace FTN.Common
 		POWERTRWINDING_PHASETOPHASEVOLTAGE	= 0x1111100000040705,
 		POWERTRWINDING_POWERTRW				= 0x1111100000040809,
 		POWERTRWINDING_TESTS				= 0x1111100000040919,
-	}
+
+        CONDUCTOR                           = 0x1111200000000000,
+        CONDUCTOR_CONDMAT                   = 0x111120000000010a,
+        CONDUCTOR_LENGTH                    = 0x1111200000000205,
+
+        ACLINESEGMENT                       = 0x1111210000060000,
+        ACLINESEGMENT_FEEDER                = 0x1111210000060101,
+        ACLINESEGMENT_R                     = 0x1111210000060205,
+    }
 
     [Flags]
 	public enum ModelCodeMask : long

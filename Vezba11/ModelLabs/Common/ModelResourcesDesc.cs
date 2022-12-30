@@ -870,8 +870,9 @@ namespace FTN.Common
 			typeIdsInInsertOrder.Add(ModelCode.LOCATION);
 			typeIdsInInsertOrder.Add(ModelCode.POWERTR);
 			typeIdsInInsertOrder.Add(ModelCode.POWERTRWINDING);
-			typeIdsInInsertOrder.Add(ModelCode.WINDINGTEST);			
-		}
+			typeIdsInInsertOrder.Add(ModelCode.WINDINGTEST);
+            typeIdsInInsertOrder.Add(ModelCode.ACLINESEGMENT);
+        }
 
 		private void InitializeNotSettablePropertyIds()
 		{			

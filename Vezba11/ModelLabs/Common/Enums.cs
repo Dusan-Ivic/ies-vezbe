@@ -51,5 +51,14 @@ namespace FTN.Common
 		Primary = 1,
 		Secondary = 2,
 		Tertiary = 3
-	}			
+	}		
+    
+    public enum ConductorMaterialKind : short
+    {
+        aluminum = 0,
+        copper = 1,
+        steel = 2,
+        acsr = 3,
+        other = 4
+    }
 }

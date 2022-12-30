@@ -137,9 +137,12 @@ namespace FTN.Services.NetworkModelService
 					break;
 				case DMSType.WINDINGTEST:
 					io = new WindingTest(globalId);
-					break;			
+					break;
+                case DMSType.ACLINESEGMENT:
+                    io = new ACLineSegment(globalId);
+                    break;
 
-				default:					
+                default:					
 					string message = String.Format("Failed to create entity because specified type ({0}) is not supported.", type);
 					CommonTrace.WriteTrace(CommonTrace.TraceError, message);
 					throw new Exception(message);					
