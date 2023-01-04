@@ -132,13 +132,21 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 					base.SetProperty(property);
 					break;
 			}
-		}	
+		}
 
-		#endregion IAccess implementation
+        #endregion IAccess implementation
 
-		#region IReference implementation
+        #region IReference implementation
 
-		public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
+        public override bool IsReferenced
+        {
+            get
+            {
+                return terminals.Count != 0 || base.IsReferenced;
+            }
+        }
+
+        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
 		{
 			if (baseVoltage != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
 			{
