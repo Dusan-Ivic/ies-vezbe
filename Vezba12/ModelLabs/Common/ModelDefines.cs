@@ -14,6 +14,7 @@ namespace FTN.Common
 		POWERTR								= 0x0003,
 		POWERTRWINDING						= 0x0004,
 		WINDINGTEST							= 0x0005,
+        TERMINAL                            = 0x0006,
 	}
 
     [Flags]
@@ -56,6 +57,7 @@ namespace FTN.Common
 		CONDEQ_PHASES						= 0x111100000000010a,
 		CONDEQ_RATEDVOLTAGE					= 0x1111000000000205,
 		CONDEQ_BASVOLTAGE					= 0x1111000000000309,
+        CONDEQ_TERMINALS                    = 0x1111000000000419,
 
 		POWERTR								= 0x1112000000030000,
 		POWERTR_FUNC						= 0x111200000003010a,
@@ -72,7 +74,12 @@ namespace FTN.Common
 		POWERTRWINDING_PHASETOPHASEVOLTAGE	= 0x1111100000040705,
 		POWERTRWINDING_POWERTRW				= 0x1111100000040809,
 		POWERTRWINDING_TESTS				= 0x1111100000040919,
-	}
+
+        TERMINAL                            = 0x1500000000060000,
+        TERMINAL_CONNECTED                  = 0x1500000000060101,
+        TERMINAL_SEQNUMBER                  = 0x1500000000060203,
+        TERMINAL_CONDEQ                     = 0x1500000000060309,
+    }
 
     [Flags]
 	public enum ModelCodeMask : long

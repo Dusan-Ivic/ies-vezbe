@@ -870,7 +870,8 @@ namespace FTN.Common
 			typeIdsInInsertOrder.Add(ModelCode.LOCATION);
 			typeIdsInInsertOrder.Add(ModelCode.POWERTR);
 			typeIdsInInsertOrder.Add(ModelCode.POWERTRWINDING);
-			typeIdsInInsertOrder.Add(ModelCode.WINDINGTEST);			
+			typeIdsInInsertOrder.Add(ModelCode.WINDINGTEST);
+            typeIdsInInsertOrder.Add(ModelCode.TERMINAL);
 		}
 
 		private void InitializeNotSettablePropertyIds()
@@ -879,7 +880,8 @@ namespace FTN.Common
 			notSettablePropertyIds.Add(ModelCode.BASEVOLTAGE_CONDEQS);
 			notSettablePropertyIds.Add(ModelCode.LOCATION_PSRS);
 			notSettablePropertyIds.Add(ModelCode.POWERTRWINDING_TESTS);
-            notSettablePropertyIds.Add(ModelCode.POWERTR_WINDINGS);	
+            notSettablePropertyIds.Add(ModelCode.POWERTR_WINDINGS);
+            notSettablePropertyIds.Add(ModelCode.CONDEQ_TERMINALS);
 		}
 	
 		# endregion Initialization of metadata

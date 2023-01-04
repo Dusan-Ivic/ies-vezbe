@@ -14,6 +14,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 		private PhaseCode phases;
 		private float ratedVoltage;
 		private long baseVoltage = 0;
+        private List<long> terminals = new List<long>();
 			
 		public ConductingEquipment(long globalId) : base(globalId) 
 		{
@@ -44,12 +45,18 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 			set { baseVoltage = value; }
 		}
 
+        public List<long> Terminals
+        {
+            get { return terminals; }
+            set { terminals = value; }
+        }
+
 		public override bool Equals(object obj)
 		{
 			if (base.Equals(obj))
 			{
 				ConductingEquipment x = (ConductingEquipment)obj;
-				return (x.phases == this.phases && x.ratedVoltage == this.ratedVoltage && x.baseVoltage == this.baseVoltage);
+				return (x.phases == this.phases && x.ratedVoltage == this.ratedVoltage && x.baseVoltage == this.baseVoltage && CompareHelper.CompareLists(x.terminals, this.terminals));
 			}
 			else
 			{
@@ -71,6 +78,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 				case ModelCode.CONDEQ_PHASES:				
 				case ModelCode.CONDEQ_RATEDVOLTAGE:
 				case ModelCode.CONDEQ_BASVOLTAGE:
+                case ModelCode.CONDEQ_TERMINALS:
 					return true;
 
 				default:
@@ -94,7 +102,11 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 					prop.SetValue(baseVoltage);
 					break;
 
-				default:
+                case ModelCode.CONDEQ_TERMINALS:
+                    prop.SetValue(terminals);
+                    break;
+
+                default:
 					base.GetProperty(prop);
 					break;
 			}
@@ -134,9 +146,51 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 				references[ModelCode.CONDEQ_BASVOLTAGE].Add(baseVoltage);
 			}
 
-			base.GetReferences(references, refType);
+            if (terminals != null && terminals.Count != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
+            {
+                references[ModelCode.CONDEQ_TERMINALS] = terminals.GetRange(0, terminals.Count);
+            }
+
+            base.GetReferences(references, refType);
 		}
 
-		#endregion IReference implementation
-	}
+        public override void AddReference(ModelCode referenceId, long globalId)
+        {
+            switch (referenceId)
+            {
+                case ModelCode.TERMINAL_CONDEQ:
+                    terminals.Add(globalId);
+                    break;
+
+                default:
+                    base.AddReference(referenceId, globalId);
+                    break;
+            }
+        }
+
+        public override void RemoveReference(ModelCode referenceId, long globalId)
+        {
+            switch (referenceId)
+            {
+                case ModelCode.TERMINAL_CONDEQ:
+
+                    if (terminals.Contains(globalId))
+                    {
+                        terminals.Remove(globalId);
+                    }
+                    else
+                    {
+                        CommonTrace.WriteTrace(CommonTrace.TraceWarning, "Entity (GID = 0x{0:x16}) doesn't contain reference 0x{1:x16}.", this.GlobalId, globalId);
+                    }
+
+                    break;
+
+                default:
+                    base.RemoveReference(referenceId, globalId);
+                    break;
+            }
+        }
+
+        #endregion IReference implementation
+    }
 }
